@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GCC.Controller">
+   <top>
+      <AnchorPane fx:id="topBar" prefHeight="40.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="14.0" layoutY="12.0" text="Gravity [CONTROL-CENTER]" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Roboto Light" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="570.0" layoutY="8.0" onAction="#close" prefHeight="30.0" prefWidth="30.0" ripplerFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <padding>
+                  <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+               </padding>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="WINDOW_CLOSE" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="575.0" layoutY="15.0" onAction="#resizeWindow" prefHeight="30.0" prefWidth="30.0" ripplerFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="5.0">
+               <padding>
+                  <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+               </padding>
+               <graphic>
+                  <MaterialDesignIconView fx:id="resizeIcon" fill="WHITE" glyphName="WINDOW_MAXIMIZE" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="585.0" layoutY="25.0" onAction="#minimize" prefHeight="30.0" prefWidth="30.0" ripplerFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="5.0">
+               <padding>
+                  <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+               </padding>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="WINDOW_MINIMIZE" size="20" stroke="#ffffff00" strokeWidth="10.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane>
+               <children>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="1.0" onAction="#startStopServer" prefWidth="350.0" ripplerFill="WHITE" style="-fx-background-color: #4CAF50;" text="Start server" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <LineChart fx:id="connectionsChart" title="Connections">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </VBox>
+            <AnchorPane VBox.vgrow="ALWAYS">
+               <children>
+                  <TextArea fx:id="console" editable="false" stylesheets="@style.css" wrapText="true" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
